@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FoodOrderingSystem.Repository
+namespace FoodOrderingSystem.Contracts
 {
-    public interface IUserRepository
+    public interface IMenuRepository : IRepositoryBase<Menu>
     {
-        Task<int> RegisterUser(User user);
+        
     }
 }

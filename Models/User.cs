@@ -10,8 +10,7 @@ namespace FoodOrderingSystem.Models
     public class User
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long UserID { get; set; }
+        public string UserID { get; set; }
 
         [Required(ErrorMessage = "FirstName is required")]
         [StringLength(60, ErrorMessage = "Name can't be longer than 60 characters")]
@@ -28,5 +27,7 @@ namespace FoodOrderingSystem.Models
         {
             get { return LastName + ", " + FirstName; }
         }
+        /*public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }*/
     }
 }

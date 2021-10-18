@@ -12,9 +12,16 @@ namespace FoodOrderingSystem.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long ReviewId { get; set; }
-        public long RestaurantID { get; set; }
-        public double Rating { get; set; }
+        [Required]
         public string Name { get; set; }
-        public string Comment { get; set; }        
+        [Required]
+        public double Rating { get; set; }
+        public string Comment { get; set; }
+        [Required]
+        [ForeignKey("RestaurantID")]
+        public string RestaurantID { get; set; }
+        [Required]
+        [ForeignKey("UserID")]
+        public string UserID { get; set; }              
     }
 }

@@ -12,7 +12,11 @@ namespace FoodOrderingSystem.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long BookingID { get; set; }
+        [Required]
+        [ForeignKey("UserID")]
         public string UserID { get; set; }
+        [Required]
+        [ForeignKey("RestaurantID")]
         public string RestaurantID { get; set; }
         public bool BookingStatus { get; set; }
         public bool CancellationStatus { get; set; }

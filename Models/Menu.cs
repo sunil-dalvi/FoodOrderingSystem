@@ -10,11 +10,14 @@ namespace FoodOrderingSystem.Models
     public class Menu
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long MenuIdID { get; set; }
+        [Column(Order = 1)]
         public string MenuName { get; set; }
+        [Key]
+        [Column(Order = 2)]
+        [Required]
+        [ForeignKey("RestaurantID")]
+        public string RestaurantID { get; set; }
         public string Description { get; set; }
-        public float Price { get; set; }
-        public long RestaurantID { get; set; }
+        public float Price { get; set; }        
     }
 }

@@ -1,7 +1,8 @@
+using FoodOrderingSystem.Contracts;
 using FoodOrderingSystem.Models;
+using FoodOrderingSystem.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -33,7 +34,12 @@ namespace FoodOrderingSystem
             }));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.AddDbContext<FoodOrderingDBContext>(item => item.UseSqlServer(Configuration.GetConnectionString("FoodOrderingDBConnection")));
-            services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
+            services.AddScoped<IRestaurantRepository, RestaurantRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMenuRepository, MenuRepository>();
+            services.AddScoped<IReviewRepository, ReviewRepository>();
+            //services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
